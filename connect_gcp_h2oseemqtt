@@ -1,0 +1,2 @@
+gcloud beta compute --project "h2osee" ssh --zone "us-east1-b" "h2oseemqtt"
+

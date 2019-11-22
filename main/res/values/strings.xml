@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MQTTsee Client</string>
+
+    <string name="dashBtnLabel">Dashboard</string>
+    <string name="monitorBtnLabel">Monitor</string>
+    <string name="statusBtnLabel">DISCONNECTED</string>
+
+    <string name="statusMsgTv">DISCONNECTED</string>
+    <string name="DISC">DISCONNECTED</string>
+    <string name="CONN">CONNECTED</string>
+
+    <string name="config_broker_address_hint">mqttbroker.h2osee.com</string>
+    <string name="config_broker_port_hint">1883</string>
+    <string name="mqtt_topic_hint">#</string>
+    <string name="mqtt_message_hint">enter message to publish...</string>
+    <string name="connectBtnLabel">Connect</string>
+    <string name="disconnBtnLabel">Disconnect</string>
+</resources>

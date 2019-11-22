@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfigActivity">
+
+    <Button
+        android:id="@+id/statusBtn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="@drawable/button_bg_red"
+        android:clickable="false"
+        android:text="@string/statusBtnLabel"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/config_broker_address"
+        android:layout_width="275dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:hint="@string/config_broker_address_hint"
+        android:inputType="textUri|text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusBtn" />
+
+    <EditText
+        android:id="@+id/config_broker_port"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
+        android:hint="@string/config_broker_port_hint"
+        android:inputType="number"
+        android:maxLength="4"
+        app:layout_constraintStart_toEndOf="@+id/config_broker_address"
+        app:layout_constraintTop_toBottomOf="@+id/statusBtn" />
+
+    <Button
+        android:id="@+id/connectBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_bg_dk_grey"
+        android:text="@string/connectBtnLabel"
+        android:textColor="@color/colorWhite"
+        android:typeface="normal"
+        android:onClick="connect"
+        app:layout_constraintEnd_toStartOf="@+id/disconnBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/config_broker_address" />
+
+
+    <Button
+        android:id="@+id/disconnBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/button_bg_dk_grey"
+        android:text="@string/disconnBtnLabel"
+        android:textColor="@color/colorWhite"
+        android:typeface="normal"
+        android:onClick="disconnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/connectBtn"
+        app:layout_constraintTop_toBottomOf="@+id/config_broker_address" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="16dp"
+        android:background="#562774"
+        app:layout_constraintTop_toBottomOf="@+id/disconnBtn"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/mqtt_topic"
+        android:layout_width="314dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/mqtt_topic_hint"
+        android:inputType="textLongMessage|text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <Button
+        android:id="@+id/subscribeBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_bg_dk_grey"
+        android:drawableLeft="@drawable/ic_arrows"
+        android:text="Subscribe"
+        android:textColor="@color/colorWhite"
+        android:typeface="normal"
+        android:onClick="subscribe"
+        app:layout_constraintEnd_toStartOf="@+id/publishBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mqtt_topic" />
+
+    <Button
+        android:id="@+id/publishBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/button_bg_dk_grey"
+        android:drawableLeft="@drawable/ic_arrows"
+        android:drawableRight="@drawable/ic_down_arrow"
+        android:text="Publish"
+        android:textColor="@color/colorWhite"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/subscribeBtn"
+        app:layout_constraintTop_toBottomOf="@+id/mqtt_topic" />
+
+    <EditText
+        android:id="@+id/mqtt_message"
+        android:layout_width="317dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/mqtt_message_hint"
+        android:inputType="textLongMessage|text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/publishBtn" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="16dp"
+        android:background="#562774"
+        app:layout_constraintTop_toBottomOf="@+id/mqtt_message"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/dashboardBtn"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/button_bg_dk_grey"
+        android:text="@string/dashBtnLabel"
+        android:textColor="@color/colorWhite"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/monitorBtn"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_bg_dk_grey"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/monitorBtnLabel"
+        android:textColor="@color/colorWhite"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toEndOf="@+id/dashboardBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/statusMsgTv"
+        android:layout_width="0dp"
+        android:layout_height="246dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="10sp"
+        android:verticalScrollbarPosition="defaultPosition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/topicTv"
+        android:layout_width="27dp"
+        android:layout_height="21dp"
+        android:layout_marginBottom="119dp"
+        android:text="Topic"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/mqtt_topic"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
